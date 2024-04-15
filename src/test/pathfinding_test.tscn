@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnsr1bpovp6r5"]
+
+[ext_resource type="Texture2D" uid="uid://b5wvi21oln7a5" path="res://sprites/GhostDrag.png" id="1_ewpvr"]
+[ext_resource type="Script" path="res://src/test/pathfinding_test.gd" id="2_qqp0w"]
+[ext_resource type="Texture2D" uid="uid://bna1qv1114plc" path="res://sprites/GhostIdle.png" id="3_c1pgh"]
+
+[sub_resource type="Curve2D" id="Curve2D_xe820"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -9, -8, 0, 0, 0, 0, -27, -16, 0, 0, 0, 0, -43, -6, 0, 0, 0, 0, -48, 6, 0, 0, 0, 0, -43, 19, 0, 0, 0, 0, -30, 28, 0, 0, 0, 0, -15, 23, 0, 0, 0, 0, 3, 7, 0, 0, 0, 0, 13, -7, 0, 0, 0, 0, 24, -14, 0, 0, 0, 0, 38, -13, 0, 0, 0, 0, 49, -2, 0, 0, 0, 0, 52, 15, 0, 0, 0, 0, 42, 26, 0, 0, 0, 0, 29, 28, 0, 0, 0, 0, 14, 21, 0, 0, 0, 0, 3, 8, 0, 0, 0, 0, 0, -1)
+}
+point_count = 19
+
+[sub_resource type="Animation" id="Animation_fs477"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5m3y8"]
+resource_name = "follow_path"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5oadg"]
+_data = {
+"RESET": SubResource("Animation_fs477"),
+"follow_path": SubResource("Animation_5m3y8")
+}
+
+[node name="PathfindingTest" type="Sprite2D"]
+position = Vector2(146, 115)
+texture = ExtResource("1_ewpvr")
+script = ExtResource("2_qqp0w")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xe820")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -2.41495
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+texture = ExtResource("3_c1pgh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5oadg")
+}
+autoplay = "follow_path"

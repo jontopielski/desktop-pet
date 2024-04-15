@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtfx0xvitxe4o"]
+
+[ext_resource type="Script" path="res://src/frog.gd" id="1_dk86r"]
+[ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/stacked_sprite.tscn" id="1_imab0"]
+
+[node name="Frog" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_dk86r")
+
+[node name="StackedSprite" parent="." instance=ExtResource("1_imab0")]

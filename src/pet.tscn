@@ -1,0 +1,342 @@
+[gd_scene load_steps=22 format=3 uid="uid://bmleih13b4bu5"]
+
+[ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/stacked_sprite.tscn" id="1_e8swn"]
+[ext_resource type="Script" path="res://src/pet.gd" id="1_xnorr"]
+[ext_resource type="Texture2D" uid="uid://cscnp8x8gjlps" path="res://sprites/Ghost.png" id="3_21esq"]
+[ext_resource type="Texture2D" uid="uid://b5wvi21oln7a5" path="res://sprites/GhostDrag.png" id="5_ahv6n"]
+[ext_resource type="Texture2D" uid="uid://bna1qv1114plc" path="res://sprites/GhostIdle.png" id="5_h6cyf"]
+[ext_resource type="Texture2D" uid="uid://cvbcf4gfwh4st" path="res://sprites/GhostSleep.png" id="6_hon2h"]
+[ext_resource type="Texture2D" uid="uid://b2bq1tuaskdk4" path="res://sprites/GhostPet.png" id="7_kyra0"]
+[ext_resource type="Texture2D" uid="uid://bfhj1rcsfw10a" path="res://sprites/GhostAngry.png" id="8_w68rt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hckrj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehad2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pc6r2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xie58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd6kb"]
+
+[sub_resource type="Animation" id="Animation_7n252"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_h6cyf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lqnuh"]
+resource_name = "bob_up_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:y_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -2.0]
+}
+
+[sub_resource type="Animation" id="Animation_u32gl"]
+resource_name = "drag"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ahv6n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_beqa0"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_h6cyf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_t5ilo"]
+resource_name = "pet"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_kyra0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_52ifp"]
+resource_name = "sleep"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_hon2h")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_qag2f"]
+resource_name = "angry"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_w68rt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ug0uk"]
+_data = {
+"RESET": SubResource("Animation_7n252"),
+"angry": SubResource("Animation_qag2f"),
+"bob_up_down": SubResource("Animation_lqnuh"),
+"drag": SubResource("Animation_u32gl"),
+"idle": SubResource("Animation_beqa0"),
+"pet": SubResource("Animation_t5ilo"),
+"sleep": SubResource("Animation_52ifp")
+}
+
+[node name="Pet" type="Node2D"]
+script = ExtResource("1_xnorr")
+speed = 10.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-16, -29, 16, -29, 16, 16, -16, 16)
+
+[node name="StackedSprite" parent="." instance=ExtResource("1_e8swn")]
+texture = ExtResource("3_21esq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("5_h6cyf")
+hframes = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = 8.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hckrj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ehad2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pc6r2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xie58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sd6kb")
+flat = true
+
+[node name="StateChangeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="UpdateTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="WanderRotateTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ug0uk")
+}
+
+[connection signal="button_down" from="Button" to="." method="_on_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="timeout" from="StateChangeTimer" to="." method="_on_state_change_timer_timeout"]
+[connection signal="timeout" from="UpdateTimer" to="." method="_on_update_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
