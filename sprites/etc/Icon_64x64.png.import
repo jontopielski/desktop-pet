@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2bq1tuaskdk4"
-path="res://.godot/imported/GhostPet.png-133088e9a678702414e38ec3167d637f.ctex"
+uid="uid://c0yenva22hulf"
+path="res://.godot/imported/Icon_64x64.png-fd7fedea130ba1c5622d0cf3134fd51d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GhostPet.png"
-dest_files=["res://.godot/imported/GhostPet.png-133088e9a678702414e38ec3167d637f.ctex"]
+source_file="res://sprites/etc/Icon_64x64.png"
+dest_files=["res://.godot/imported/Icon_64x64.png-fd7fedea130ba1c5622d0cf3134fd51d.ctex"]
 
 [params]
 

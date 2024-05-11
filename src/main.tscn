@@ -1,6 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7ebxr5a8lmup"]
+[gd_scene load_steps=12 format=3 uid="uid://c7ebxr5a8lmup"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_ufhy3"]
+[ext_resource type="Texture2D" uid="uid://m1w7qeoi5xeb" path="res://sprites/ui/Close.png" id="2_5vme2"]
+[ext_resource type="Texture2D" uid="uid://cphtio0p8nf2x" path="res://sprites/ui/DemonWindow.png" id="2_bgrfl"]
+[ext_resource type="Texture2D" uid="uid://idpmkp3mjhp4" path="res://sprites/ui/ClosePressed.png" id="3_bp4ka"]
+[ext_resource type="FontFile" uid="uid://bqqnsir0e1ws" path="res://fonts/koubit_001.ttf" id="5_q4ne8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3qilk"]
+texture = ExtResource("2_bgrfl")
+texture_margin_left = 8.0
+texture_margin_top = 32.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 10.0
+expand_margin_top = 30.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jayej"]
+bg_color = Color(0, 0.694118, 0.639216, 1)
+
+[sub_resource type="Theme" id="Theme_lwdjv"]
+default_font = ExtResource("5_q4ne8")
+default_font_size = 16
+Window/colors/title_color = Color(1, 1, 1, 1)
+Window/colors/title_outline_modulate = Color(1, 0.27451, 0.466667, 1)
+Window/constants/close_h_offset = 12
+Window/constants/title_height = 37
+Window/constants/title_outline_size = 0
+Window/icons/close = ExtResource("2_5vme2")
+Window/icons/close_pressed = ExtResource("3_bp4ka")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_3qilk")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jayej")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km4ir"]
+content_margin_top = 1.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 0.27451, 0.466667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.619608, 0.156863, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veo28"]
+content_margin_top = 1.0
+content_margin_bottom = 5.0
+bg_color = Color(0.619608, 0.156863, 0.207843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.619608, 0.156863, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgppa"]
+content_margin_top = 1.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 0, 0.266667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.27451, 0.466667, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ufhy3")
@@ -9,4 +70,59 @@ script = ExtResource("1_ufhy3")
 wait_time = 0.1
 autostart = true
 
+[node name="TouchedWallsTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Instructions" type="Window" parent="."]
+title = "INSTRUCTIONS"
+initial_position = 2
+size = Vector2i(180, 68)
+unresizable = true
+theme = SubResource("Theme_lwdjv")
+
+[node name="Background" type="ColorRect" parent="Instructions"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0.266667, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Instructions"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Instructions/VBox"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+text = "To summon your daemon, create a folder on your desktop and name it \"init\"."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Instructions/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="Instructions/VBox/Margin"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_km4ir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_veo28")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dgppa")
+text = "OK"
+
 [connection signal="timeout" from="FileCheckTimer" to="." method="_on_file_check_timer_timeout"]
+[connection signal="timeout" from="TouchedWallsTimer" to="." method="_on_touched_walls_timer_timeout"]
+[connection signal="close_requested" from="Instructions" to="." method="_on_instructions_close_requested"]
+[connection signal="pressed" from="Instructions/VBox/Margin/Button" to="." method="_on_button_pressed"]

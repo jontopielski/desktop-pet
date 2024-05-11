@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvbcf4gfwh4st"
-path="res://.godot/imported/GhostSleep.png-791da00c7dd82e578ef7b6b537f1597b.ctex"
+path="res://.godot/imported/GhostSleep.png-71a8f754d9cd2f33cec037a33c88b4e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GhostSleep.png"
-dest_files=["res://.godot/imported/GhostSleep.png-791da00c7dd82e578ef7b6b537f1597b.ctex"]
+source_file="res://sprites/ghost/GhostSleep.png"
+dest_files=["res://.godot/imported/GhostSleep.png-71a8f754d9cd2f33cec037a33c88b4e5.ctex"]
 
 [params]
 

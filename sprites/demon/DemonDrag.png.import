@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cscnp8x8gjlps"
-path="res://.godot/imported/Ghost.png-707e9507998181a8a02428742f6c248d.ctex"
+uid="uid://ckpfukan6ai7m"
+path="res://.godot/imported/DemonDrag.png-8052843c0a49ee08d2ff74fbcc0cb2be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Ghost.png"
-dest_files=["res://.godot/imported/Ghost.png-707e9507998181a8a02428742f6c248d.ctex"]
+source_file="res://sprites/demon/DemonDrag.png"
+dest_files=["res://.godot/imported/DemonDrag.png-8052843c0a49ee08d2ff74fbcc0cb2be.ctex"]
 
 [params]
 

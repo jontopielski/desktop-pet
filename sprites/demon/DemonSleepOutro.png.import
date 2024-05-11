@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bna1qv1114plc"
-path="res://.godot/imported/GhostIdle.png-063ccdd97bc890d6f5a380ddc47a6ef7.ctex"
+uid="uid://dvyenoqq8j5te"
+path="res://.godot/imported/DemonSleepOutro.png-ae8e4c1057a688d7ea0eacc834f6d54e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GhostIdle.png"
-dest_files=["res://.godot/imported/GhostIdle.png-063ccdd97bc890d6f5a380ddc47a6ef7.ctex"]
+source_file="res://sprites/demon/DemonSleepOutro.png"
+dest_files=["res://.godot/imported/DemonSleepOutro.png-ae8e4c1057a688d7ea0eacc834f6d54e.ctex"]
 
 [params]
 

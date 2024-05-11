@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfhj1rcsfw10a"
-path="res://.godot/imported/GhostAngry.png-7723c3d1d805a06d157c72ea5f52762a.ctex"
+uid="uid://bna1qv1114plc"
+path="res://.godot/imported/GhostIdle.png-274eaf4c08cf31f69cf3c3f0f94f640c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GhostAngry.png"
-dest_files=["res://.godot/imported/GhostAngry.png-7723c3d1d805a06d157c72ea5f52762a.ctex"]
+source_file="res://sprites/ghost/GhostIdle.png"
+dest_files=["res://.godot/imported/GhostIdle.png-274eaf4c08cf31f69cf3c3f0f94f640c.ctex"]
 
 [params]
 
